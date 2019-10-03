@@ -7,7 +7,9 @@ class Challenge4(unittest.TestCase):
         num = int(input("Please enter a number: "))
 
         fibNum = Fibonacci.generate_fibonacci(Fibonacci(), num)
-        print(str(fibNum) + " " + IntToWord.int_to_word(IntToWord(), fibNum))
+        numWord = IntToWord.int_to_word(IntToWord(), fibNum)
+
+        print(str(fibNum) + " - " + numWord)
 
 
 class Fibonacci():
