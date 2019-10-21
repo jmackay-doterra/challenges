@@ -14,7 +14,7 @@ class Challenge5(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-    def test_challenge2(self):
+    def test_challenge5(self):
         self.driver.maximize_window()
         self.driver.get("https://www.copart.com")
 
