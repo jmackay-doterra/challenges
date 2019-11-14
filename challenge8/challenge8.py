@@ -22,7 +22,6 @@ class Challenge8(unittest.TestCase):
             'user-agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
             'x-requested-with':"XMLHttpRequest",
             'x-xsrf-token':"f4113ad8-ff8d-4aca-8a31-e6db64504a7d",
-            'Postman-Token':"3bb63a48-217d-483e-ae30-5a2306c9900d,db1a0766-edde-423f-8434-3760ea6ce8a9",
             'Host':"www.copart.com",
             'Content-Length':"13032",
             'Connection':"keep-alive"
