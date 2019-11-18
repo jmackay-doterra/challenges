@@ -1,16 +1,10 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 import requests
 
 
-class Homework2(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Homework2(Base):
 
     def test_homework1(self):
         self.driver.get("https://www.doterra.com")

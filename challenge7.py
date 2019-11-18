@@ -1,21 +1,14 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import requests
 
 
-class Challenge7(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Challenge7(Base):
 
     def test_challenge7(self):
-        self.driver.maximize_window()
         self.driver.get("https://www.copart.com")
 
         # Waiting until the "Popular Items" section to load (sometimes the page loads slowly and the test fails)

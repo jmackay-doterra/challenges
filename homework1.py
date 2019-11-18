@@ -1,17 +1,11 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class Homework1(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Homework1(Base):
 
     def test_homework1(self):
         self.driver.maximize_window()

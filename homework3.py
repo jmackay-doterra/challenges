@@ -1,15 +1,9 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 
 
-class Homework3(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Homework3(Base):
 
     def test_challenge2(self):
         self.driver.get("https://www.doterra.com/US/en/product-education-blends")

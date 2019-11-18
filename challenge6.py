@@ -1,21 +1,14 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class Challenge6(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Challenge6(Base):
 
     def test_challenge6(self):
-        self.driver.maximize_window()
         self.driver.get("https://www.copart.com")
 
         search = self.driver.find_element(By.ID , "input-search")
@@ -49,7 +42,7 @@ class Challenge6(unittest.TestCase):
             print("Found", vehicles, "vehicle(s) of that model.")
 
         except:
-            self.driver.save_screenshot("screenshot.png")
+            self.driver.save_screenshot("/_common/screenshot.png")
             print("A screenshot has been saved as screenshot.png")
 
 

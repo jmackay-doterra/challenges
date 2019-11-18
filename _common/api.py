@@ -1,21 +1,6 @@
-import unittest
-import requests
 from requests_toolbelt.multipart import encoder
 
-class Challenge8(unittest.TestCase):
-
-    def test_challenge8(self):
-        url = "https://www.copart.com/public/lots/search"
-        queries = ["jeep", "jeep wrangler", "cherokee", "jeep cherokee", "lamborghini", "ferrari", "mustang",
-                   "corvette", "porsche", "chevrolet silverado"]
-
-        for query in range(len(queries)):
-            payload = self.getPayload(queries[query])
-            headers = self.getHeaders()
-            response = requests.post(url, data=payload, headers=headers)
-            totalElements = str(response.json()['data']['results']['totalElements'])
-            print(totalElements + " results for '" + queries[query] + "'")
-
+class Api():
     def getHeaders(self):
         headers = {
             'authority': "www.copart.com",
@@ -149,6 +134,3 @@ class Challenge8(unittest.TestCase):
             "size": "20"
         }, boundary="----WebKitFormBoundary7MA4YWxkTrZu0gW")
         return payload
-
-if __name__ == '__main__':
-    unittest.main()

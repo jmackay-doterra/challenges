@@ -1,21 +1,14 @@
 import unittest
-from selenium import webdriver
+from base import Base
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class Challenge5(unittest.TestCase):
-
-    def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver.exe")
-
-    def tearDown(self):
-        self.driver.close()
+class Challenge5(Base):
 
     def test_challenge5(self):
-        self.driver.maximize_window()
         self.driver.get("https://www.copart.com")
 
         # Finds search input and searches for 'exotics'
