@@ -42,7 +42,7 @@ class Challenge6(Base):
             print("Found", vehicles, "vehicle(s) of that model.")
 
         except:
-            self.driver.save_screenshot("/_common/screenshot.png")
+            self.driver.save_screenshot("../challenges/_common/screenshot.png")
             print("A screenshot has been saved as screenshot.png")
 
 
