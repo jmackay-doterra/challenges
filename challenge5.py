@@ -1,32 +1,17 @@
 import unittest
 from base import Base
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from _common.search import Search
 
 
 class Challenge5(Base):
 
     def test_challenge5(self):
         self.driver.get("https://www.copart.com")
-
-        # Finds search input and searches for 'exotics'
-        search = self.driver.find_element(By.ID , "input-search")
-        search.send_keys("porsche" + Keys.RETURN)
-
-        # Waits until the results table is visible
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id=\"serverSideDataTable\"]//tbody")))
-
-        # Selects to show 100 items in the results
-        itemsToShow = self.driver.find_element(By.XPATH, "//*[@id=\"serverSideDataTable_length\"]//select")
-        itemsToShow.click()
-        option = self.driver.find_element(By.XPATH, "//*[@id=\"serverSideDataTable_length\"]//option[3]")
-        option.click()
-
-        # Waits until the results table has reloaded
-        WebDriverWait(self.driver, 30).until(
-            EC.invisibility_of_element_located((By.ID, "serverSideDataTable_processing")))
+        Search.searchBar(self, "porsche")
+        Search.selectNumOfItemsToShow(self, Search.numOfItems_100)
 
         # Finds all models returned
         models = self.driver.find_elements(By.XPATH, "//*[@id=\"serverSideDataTable\"]//span[@data-uname=\"lotsearchLotmodel\"]")

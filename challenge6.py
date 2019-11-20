@@ -1,18 +1,16 @@
 import unittest
 from base import Base
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from _common.search import Search
 
 
 class Challenge6(Base):
 
     def test_challenge6(self):
         self.driver.get("https://www.copart.com")
-
-        search = self.driver.find_element(By.ID , "input-search")
-        search.send_keys("nissan" + Keys.RETURN)
+        Search.searchBar(self, "nissan")
 
         # Waits until the model filter is visible
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id=\"filters-collapse-1\"]//a[@data-uname=\"ModelFilter\"]")))
