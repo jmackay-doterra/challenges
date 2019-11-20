@@ -1,4 +1,6 @@
 from requests_toolbelt.multipart import encoder
+import pandas as pd
+import numpy as np
 
 class Api():
     def getHeaders(self):
@@ -201,3 +203,23 @@ class Api():
             "al": str
         }
         return expectedTypes
+
+    def getQueriesFromFile(excelFile):
+        queries = {}
+
+        df = pd.read_excel(excelFile)
+        df.replace(np.nan, "", True)
+
+        for row in df.index:
+            query = ""
+
+            if df.loc[row]["year"] != "":
+                df.loc[row]["year"] = int(df.loc[row]["year"])
+
+            for column in df:
+                if str(df[column][row]) != "":
+                    query += str(df[column][row]) + " "
+
+            queries[row] = query
+
+        return queries
